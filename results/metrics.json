@@ -1,0 +1,112 @@
+{
+  "pca_mnist": {
+    "pc1_pc2_explained_variance": [
+      0.0975,
+      0.0716
+    ],
+    "components_for_95pct_variance": 154,
+    "compression_ratio": 5.09,
+    "reconstruction_mse": 0.00336
+  },
+  "kernel_pca_swiss_roll": {
+    "best_kernel": "rbf",
+    "best_gamma": 0.0456,
+    "best_cv_accuracy": 0.566
+  },
+  "kmeans_dbscan": {
+    "baseline_pca_svm": {
+      "cv_acc": 0.8958,
+      "val_acc": 0.925
+    },
+    "best_k_by_silhouette": 100,
+    "best_silhouette": 0.2067,
+    "kmeans_features_svm": {
+      "n_features": 100,
+      "cv_acc": 0.6792,
+      "val_acc": 0.75
+    },
+    "selected_model": "pca_svm",
+    "test_acc": 0.9875,
+    "dbscan": {
+      "eps": 27.597,
+      "min_samples": 3,
+      "clusters": 46,
+      "noise_fraction": 0.525,
+      "ari_vs_identity": 0.0444
+    }
+  },
+  "hierarchical": {
+    "silhouette_sweep": {
+      "euclidean_ward": {
+        "best_k": 120,
+        "best_silhouette": 0.2306
+      },
+      "manhattan_average": {
+        "best_k": 120,
+        "best_silhouette": 0.265
+      },
+      "cosine_average": {
+        "best_k": 120,
+        "best_silhouette": 0.2921
+      }
+    },
+    "k40_vs_identity": {
+      "euclidean_ward": {
+        "ari": 0.4915,
+        "nmi": 0.8127
+      },
+      "manhattan_average": {
+        "ari": 0.2949,
+        "nmi": 0.7538
+      },
+      "cosine_average": {
+        "ari": 0.1591,
+        "nmi": 0.7238
+      }
+    },
+    "best_metric_by_ari": "euclidean_ward"
+  },
+  "gmm": {
+    "pca_components_99pct": 260,
+    "best_covariance_type": "diag",
+    "best_n_components_bic": 2,
+    "best_n_components_aic": 4,
+    "mean_max_responsibility": 0.9967,
+    "anomaly_detection": {
+      "genuine_mean_loglik": 8.5,
+      "threshold_p2": -42.9,
+      "rotated_45": {
+        "mean_loglik": -387.2,
+        "flagged_fraction": 1.0
+      },
+      "flipped_vertical": {
+        "mean_loglik": -187.4,
+        "flagged_fraction": 1.0
+      },
+      "darkened_gamma_3": {
+        "mean_loglik": -18.3,
+        "flagged_fraction": 0.35
+      }
+    }
+  },
+  "autoencoder": {
+    "cv_grid_mse": {
+      "code=32, l1=0.001": 0.013714,
+      "code=32, l1=0.0001": 0.009907,
+      "code=32, l1=1e-05": 0.008963,
+      "code=64, l1=0.001": 0.00841,
+      "code=64, l1=0.0001": 0.007492,
+      "code=64, l1=1e-05": 0.007634,
+      "code=128, l1=0.001": 0.007642,
+      "code=128, l1=0.0001": 0.007458,
+      "code=128, l1=1e-05": 0.007524
+    },
+    "best": {
+      "code_size": 128,
+      "l1": 0.0001
+    },
+    "test_mse_autoencoder": 0.005821,
+    "test_mse_pca_same_code_size": 0.002251,
+    "epochs": 80
+  }
+}
