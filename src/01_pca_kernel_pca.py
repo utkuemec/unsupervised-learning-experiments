@@ -24,7 +24,8 @@ from common import SEED, record, save_fig, set_seed
 
 
 def mnist_pca(quick: bool) -> dict:
-    X, y = fetch_openml("mnist_784", version=1, as_frame=False, parser="auto", return_X_y=True)
+    # liac-arff: pure-Python parser, avoids pandas/scikit-learn version coupling
+    X, y = fetch_openml("mnist_784", version=1, as_frame=False, parser="liac-arff", return_X_y=True)
     X = X.astype(np.float32) / 255.0
     if quick:
         X, y = X[:10_000], y[:10_000]
