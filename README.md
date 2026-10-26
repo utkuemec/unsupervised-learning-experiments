@@ -7,7 +7,7 @@
 
 Five reproducible experiments on dimensionality reduction, clustering, density estimation and representation learning, using the **Olivetti faces** (400 images, 40 people), **MNIST** (70k digits) and a synthetic **Swiss roll**. Each script answers a concrete question, uses seeded stratified train/validation/test splits, and writes its metrics to [`results/metrics.json`](results/metrics.json).
 
-<img src="docs/autoencoder_reconstructions.jpg" width="720" alt="Held-out faces: original, sparse autoencoder and PCA reconstructions">
+<img src="docs/autoencoder_reconstructions.jpg" width="560" alt="Held-out faces: original, sparse autoencoder and PCA reconstructions">
 
 *Held-out test faces (top) reconstructed by the tuned sparse autoencoder (middle) and by PCA with the same 128-dimensional code (bottom).*
 
@@ -30,7 +30,7 @@ Five reproducible experiments on dimensionality reduction, clustering, density e
 - **Clustering metrics disagree.** Silhouette keeps rising with *k* for every linkage, while identity recovery (ARI) peaks for Ward linkage — internal metrics alone would pick the wrong model.
 - **Density models make cheap anomaly detectors.** A 2-component GMM in PCA space gives genuine faces a mean log-likelihood of +8.5 versus −187 (flipped) and −387 (rotated); photometric changes (darkening, −18) are much harder to catch.
 
-<img src="docs/gmm_generated_faces.jpg" width="720" alt="New faces sampled from the fitted Gaussian mixture">
+<img src="docs/gmm_generated_faces.jpg" width="640" alt="New faces sampled from the fitted Gaussian mixture">
 
 *New faces sampled from the fitted GMM and projected back to pixel space.*
 
